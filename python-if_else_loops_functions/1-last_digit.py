@@ -7,6 +7,7 @@ if (number >= 0):
 else:
     number * -1
     lastdigit = - number % 10
+    lastdigit * -1
 
 print(f"Last digit of {number} is {lastdigit}", end=" ")
 
