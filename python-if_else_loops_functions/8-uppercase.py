@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def uppercase(str):
-   
+
     Ascii = ""
     strMayus = ""
     Strlrg = len(str)
