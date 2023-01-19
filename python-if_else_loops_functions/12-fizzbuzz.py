@@ -2,8 +2,6 @@
 def fizzbuzz():
 
     for i in range(1, 101):
-        if (i == 100):
-            print("Buzz".format(i))
         elif (i % 3 == 0 and i % 5 == 0):
             print("FizzBuzz".format(i), end=" ")
         elif (i % 3 == 0):
