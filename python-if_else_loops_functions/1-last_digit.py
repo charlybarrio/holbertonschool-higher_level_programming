@@ -2,12 +2,12 @@
 import random
 number = random.randint(-10000, 10000)
 
-if (number >= 0):
-    lastdigit = number % 10
-else:
+if (number < 0):
     number * -1
-    lastdigit = - number % 10
-    lastdigit * -1
+    lastdigit = number % 10
+    lastdigit *= -1
+else:
+    lastdigit = number % 10
 
 print(f"Last digit of {number} is {lastdigit}", end=" ")
 
