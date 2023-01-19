@@ -9,7 +9,7 @@ else:
     lastdigit = number % 10
     lastdigit *= -1
 
-print(f"Last digit of {number} is {lastdigit} ")
+print(f"Last digit of {number} is {lastdigit}", end= " ")
 
 if (lastdigit > 5):
     print(f"and is greater than 5")
