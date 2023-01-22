@@ -5,7 +5,10 @@ if __name__ == "__main__":
     arg = len(argv)
     if (arg == 0):
         print("{} arguments.".format(arg))
-    else:
+    elif (arg == 1):
         print("{} argument:".format(arg))
+        print("{}: {}".format(1, argv[0]))
+    else:
+        print("{} arguments:".format(arg))
         for a in range(arg):
             print("{}: {}".format(a + 1, argv[a]))
