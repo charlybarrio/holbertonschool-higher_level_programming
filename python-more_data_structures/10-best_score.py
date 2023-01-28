@@ -2,6 +2,5 @@
 def best_score(a_dictionary):
      if a_dictionary is None:
          return None
-     val = list(a_dictionary.values())
-     keys = list(a_dictionary.keys())
-     return keys[val.index(max(val))]
+     new_val = max(a_dictionary, key= lambda x: a_dictionary[x])
+     return new_val
