@@ -2,6 +2,8 @@
 def roman_to_int(roman_string):
     if not isinstance(roman_string, (str, type(None))):
         return 0
+    if roman_string is None:
+        return 0
     else:
         letter_val = {
                 'I': 1,
