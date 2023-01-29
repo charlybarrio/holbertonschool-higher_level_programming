@@ -3,9 +3,9 @@ def safe_print_division(a, b):
     c = 0
     try:
         c = a / b
-    except:
-        pass
+    except DivZero:
+        result = None
     finally:
-        print("Inside result: {:f}".format(c))
+        print("Inside result: {}".format(c))
         return c
 
