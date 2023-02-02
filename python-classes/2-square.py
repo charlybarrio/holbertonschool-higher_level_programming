@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-class Square:
-    """ A class representing a square"""
+ """ A class representing a square"""
 
+
+class Square:
+    """define a square object"""
     def __int__(self, size=0):
         """initialize with a size"""
         try:
