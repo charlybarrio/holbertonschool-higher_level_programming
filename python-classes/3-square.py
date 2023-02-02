@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-"""A class representing a square"""
+"""
+A class representing a square
+"""
 
 
 class Square:
-    """define a square object"""
+    """
+    define a square object
+    """
     def __init__(self, size=0):
-        """initialize with a size"""
+        """
+        initialize with a size
+        """
         try:
             if not isinstance(size, int):
                 raise TypeError
@@ -18,5 +24,5 @@ class Square:
             raise ValueError("size must be >= 0")
 
         def area(self):
-        Area = self.__size * self.__size
-        return Area
+            Area = self.__size * self.__size
+            return Area
