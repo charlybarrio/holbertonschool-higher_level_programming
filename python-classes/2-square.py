@@ -4,7 +4,7 @@
 
 class Square:
     """define a square object"""
-    def __int__(self, size=0):
+    def __init__(self, size=0):
         """initialize with a size"""
         try:
             if not isinstance(size, int):
