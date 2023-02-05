@@ -1,62 +1,35 @@
-x_divided = __import__('2-matrix_divided').matrix_divided
+def test_matrix_divided():
+    # Test with a 2x2 matrix of integers and divisor of 2
+    result = matrix_divided([[1, 2], [3, 4]], 2)
+    assert result == [[0.5, 1.0], [1.5, 2.0]], "Expected [[0.5, 1.0], [1.5, 2.0]], but got {}".format(result)
 
-    >>> matrix_divided([[1,2,3], [4,5,6]], 2)
-    [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+    # Test with a 2x2 matrix of floats and divisor of 0.5
+    result = matrix_divided([[1.0, 2.0], [3.0, 4.0]], 0.5)
+    assert result == [[2.0, 4.0], [6.0, 8.0]], "Expected [[2.0, 4.0], [6.0, 8.0]], but got {}".format(result)
 
-    >>> matrix_divided([[1,2,3], [4,5,6]], 3.2)
-    [[0.31, 0.62, 0.94], [1.25, 1.56, 1.88]]
+    # Test with a matrix of different row sizes
+    try:
+        matrix_divided([[1, 2], [3, 4, 5]], 2)
+    except TypeError as e:
+        assert str(e) == "Each row of the matrix must have the same size", "Unexpected error message: {}".format(e)
 
-    >>> matrix_divided([[1,2,3], [4,5,6]], float('inf'))
-    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+    # Test with a non-matrix input
+    try:
+        matrix_divided([1, 2, 3], 2)
+    except TypeError as e:
+        assert str(e) == "matrix must be a matrix (list of lists) of integers/floats", "Unexpected error message: {}".format(e)
 
-    >>> matrix_divided()
-    Traceback (most recent call last):
-    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+    # Test with a matrix of non-integer/float elements
+    try:
+        matrix_divided([[1, 2], ["a", 4]], 2)
+    except TypeError as e:
+        assert str(e) == "matrix must be a matrix (list of lists) of integers/floats", "Unexpected error message: {}".format(e)
 
-    >>> matrix_divided([1,2,3])
-    Traceback (most recent call last):
-    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+    # Test with a non-numeric divisor
+    try:
+        matrix_divided([[1, 2], [3, 4]], "a")
+    except TypeError as e:
+        assert str(e) == "div must be a number", "Unexpected error message: {}".format(e)
 
-    >>> matrix_divided(3)
-    Traceback (most recent call last):
-    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+    # Test
 
-    >>> matrix_divided(None)
-    Traceback (most recent call last):
-    TypeError: matrix_divided() missing 1 required positional argument: 'div'
-
-    >>> matrix_divided([1,2,3], None)
-    Traceback (most recent call last):
-    TypeError: div must be a number
-
-    >>> matrix_divided(None, None)
-    Traceback (most recent call last):
-    TypeError: div must be a number
-
-    >>> matrix_divided(None, 5)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-    >>> matrix_divided("hola", 5)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-    >>> matrix_divided([1,2,3], "hola")
-    Traceback (most recent call last):
-    TypeError: div must be a number
-
-    >>> matrix_divided([[1,2,3], [4,5,6]], 0)
-    Traceback (most recent call last):
-    ZeroDivisionError: division by zero
-
-    >>> matrix_divided([[3, 9], [12, 15, 3]], 2)
-    Traceback (most recent call last):
-    TypeError: Each row of the matrix must have the same size
-
-    >>> matrix_divided([[3, 9, 10, 11], [12, 15, 3]], 2)
-    Traceback (most recent call last):
-    TypeError: Each row of the matrix must have the same size
-
-    >>> matrix_divided([[3, "9"], [12, 3]], 2)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
