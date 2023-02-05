@@ -1,5 +1,13 @@
 #!/usr/bin/python3
+"""
+Add two int
+"""
+
+
 def add_integer(a, b=98):
+    """
+    This function add 2 int.
+    """
     if isinstance(a, (int, float)):
         a = int(a)
     else:
@@ -7,5 +15,5 @@ def add_integer(a, b=98):
     if isinstance(b, (int, float)):
         b = int(b)
     else:
-        raise TypeError("b must be an intefer")
+        raise TypeError("b must be an integer")
     return a + b
