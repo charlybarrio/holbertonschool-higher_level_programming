@@ -1,28 +1,45 @@
-add_integer = __import__('0-add_integer').add_integer
-"""
->>> print(add_integer(1, 2))
+Import function:
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test function:
+
+>>> add_integer(1, 2)
 3
->>> print(add_integer(100, -2))
+
+>>> add_integer(100, -2)
 98
->>> print(add_integer(2))
+
+>>> add_integer(90.1, -2)
+88
+
+>>> add_integer(2)
 100
->>> print(add_integer(100.3, -2))
-98
->>> try:
-    print(add_integer(4, "School"))
-except Exception as e:
-    print(e)
-b must be an integer
->>> try:
-    print(add_integer(None))
-except Exception as e:
-    print(e)
-a must be an integer
->>> python3 -m doctest -v ./tests/0-add_integer.txt | tail -2
-9 passed and 0 failed.
-Test passed.
->>> python3 -c 'print(__import__("0-add_integer").__doc__)' | wc -l
-5
->>> python3 -c 'print(__import__("0-add_integer").add_integer.__doc__)' | wc -l
-3
-"""
+
+>>> add_integer("hello", 12)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(3,'ola')
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(98, None)
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(3+5j, 3+5j)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(float('NaN'))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(1000e1000, 1000e1000)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer("hola")
+Traceback (most recent call last):
+TypeError: a must be an integer
