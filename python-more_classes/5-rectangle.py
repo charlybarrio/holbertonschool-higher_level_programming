@@ -7,6 +7,7 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ""
