@@ -49,4 +49,3 @@ class Rectangle:
         for i in range(self.__height):
             rectangle.append("#" * self.__width)
         return "\n".join(rectangle)
-
