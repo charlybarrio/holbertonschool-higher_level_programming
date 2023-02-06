@@ -1,22 +1,30 @@
 #!/usr/bin/python3
-"""
-dev a matrix
-"""
+"""Divides a given matrix by a given number"""
 
 
 def matrix_divided(matrix, div):
-    """
-    div a matrix
-    """
-    if type(matrix) != list or not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    if not all(isinstance(element, (int, float)) for row in matrix for element in row):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    if len(set(len(row) for row in matrix)) != 1:
-        raise TypeError("Each row of the matrix must have the same size")
-    if not isinstance(div, (int, float)):
+    """division"""
+    err = "matrix must be a matrix (list of lists) of integers/floats"
+    if type(div) not in [int, float]:
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    return [[round(element / div, 2) for element in row] for row in matrix]
-
+    if type(matrix) != list:
+        raise TypeError(err)
+    if not all(map(lambda x: type(x) == list, matrix)):
+        raise TypeError(err)
+    if not all(map(lambda x: len(x) == len(matrix[0]), matrix)):
+        raise TypeError("Each row of the matrix must have the same size")
+    if type(matrix) is not list or len(matrix) == 0 or len(matrix[0]) == 0:
+        raise TypeError(err)
+    new_mx = []
+    for lists in matrix:
+        if len(lists) != len(matrix[0]):
+            raise TypeError("Each row of the matrix must have the same size")
+        new_list = []
+        for position in lists:
+            if type(position) is not int and type(position) is not float:
+                raise TypeError(err)
+            new_list.append(round(position/div, 2))
+        new_mx.append(new_list)
+    return new_mx
