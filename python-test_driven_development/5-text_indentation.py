@@ -20,4 +20,4 @@ def text_indentation(text):
                 continue
             bool = False
         else:
-            print(text[i], end="") 
+            print(text[i], end="")
