@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Return al attributes and methods
+"""
 def lookup(obj):
-    print(dir(obj))
-    
+    """
+    Inicialized
+    """
+    return (dir(obj)) 
