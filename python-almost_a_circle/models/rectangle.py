@@ -102,3 +102,18 @@ class Rectangle(Base):
         x = self.__x
         y = self.__y
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(id, x, y, w, h))
+
+    def update(self, *args):
+        id = self.id
+        w = self.__width
+        h = self.__height
+        x = self.__x
+        y = self.__y
+        att = [id, w, h, x, y]
+        for i in range(len(args)):
+            att[i] = args[i]
+        self.id = att[0]
+        self.__width = att[1]
+        self.__height = att[2]
+        self.__x = att[3]
+        self.__y = att[4]
