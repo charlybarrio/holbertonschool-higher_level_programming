@@ -11,6 +11,7 @@ class Rectangle(Base):
     """Class Rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """init"""
         self.__width = width
         self.__height = height
         self.__x = x
@@ -82,5 +83,6 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Calculate the area"""
         Area = self.__width * self.__height
         return Area
