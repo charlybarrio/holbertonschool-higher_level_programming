@@ -65,4 +65,6 @@ class Base:
                 jsonstring = cls.from_json_string(file.read())
                 for obj_dict in jsonstring:
                     instance_list.append(cls.create(**obj_dict))
-        return instance_list
+            return instance_list
+        else:
+            return instance_list
