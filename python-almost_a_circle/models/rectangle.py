@@ -32,7 +32,7 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
-        super(self.__class__, self).__init__(id)
+        super().__init__(id)
 
     @property
     def width(self):
