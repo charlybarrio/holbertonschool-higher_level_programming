@@ -78,23 +78,19 @@ class Rectangle(Base):
         for i in range(self.__height):
             print(" " * self.__x, end="")
             print("#" * self.__width)
+    
+    id = self.id
+    w = self.__width
+    h = self.__height
+    x = self.__x
+    y = self.__y
 
     def __str__(self):
-        id = self.id
-        w = self.__width
-        h = self.__height
-        x = self.__x
-        y = self.__y
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(id, x, y, w, h))
 
     def update(self, *args, **kwargs):
         """assigns arguments to the atributes"""
         if args:
-            id = self.id
-            w = self.__width
-            h = self.__height
-            x = self.__x
-            y = self.__y
             att = [id, w, h, x, y]
             for i in range(len(args)):
                 att[i] = args[i]
@@ -106,3 +102,6 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        return {'x': x, 'y': y, 'id': id,'height': height, 'width': width}
