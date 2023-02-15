@@ -38,3 +38,13 @@ class Base:
         json_str = cls.to_json_string(obj_list)
         with open(filename, "w") as f:
             f.write(json_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Json string representation jsonstring"""
+        json.loads(json_string)
+        if json_string:
+            return json.loads(json_string)
+        else:
+            return "[]"
+
