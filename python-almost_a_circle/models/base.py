@@ -44,5 +44,5 @@ class Base:
         """Json string representation jsonstring"""
         json.loads(json_string)
         if json_string is None:
-            return "[]"
+            return []
         return json.loads(json_string)
