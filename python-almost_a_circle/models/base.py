@@ -60,11 +60,11 @@ class Base:
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
         instance_list = []
-        if filename:
+        try:
             with open(filename, 'r') as file:
                 jsonstring = cls.from_json_string(file.read())
                 for obj_dict in jsonstring:
                     instance_list.append(cls.create(**obj_dict))
-            return instance_list
-        else:
-            return instance_list
+        except:
+            pass
+        return instance_list
