@@ -18,15 +18,14 @@ if __name__ == "__main__":
             passwd=mysql_password,
             db=database_name)
 
-    #Exectute the query 
+    # Exectute the query
     cur = db.cursor()
 
     query = ("SELECT * FROM states ORDER BY states.id ASC")
     cur.execute(query)
 
-    #fetchall statement select the data of the tables
+    # fetchall statement select the data of the tables
     records = cur.fetchall()
-
 
     for element in records:
         print(element)
