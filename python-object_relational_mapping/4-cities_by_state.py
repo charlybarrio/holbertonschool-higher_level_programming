@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # Exectute the query
     cur = db.cursor()
 
-    cur.execute("""SELECT cities.id, cities.name, states.name 
+    cur.execute("""SELECT cities.id, cities.name, states.name
                 FROM cities LEFT JOIN states
                 ON cities.state_id = states.id
                 ORDER BY cities.id ASC""")
