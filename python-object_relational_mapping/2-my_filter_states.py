@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     query = ("""SELECT * FROM states
             WHERE name LIKE BINARY '{}'
-            ORDER BY states.id ASC.format(state_name)""")
+            ORDER BY states.id ASC""".format(state_name))
     cur.execute(query)
 
     # fetchall statement select the data of the tables
