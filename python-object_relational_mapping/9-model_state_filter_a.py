@@ -10,21 +10,20 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
+
     user = sys.argv[1]
     pwd = sys.argv[2]
     db_name = sys.argv[3]
 
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}". format(
-                            user, pwd, db_name))
+        user, pwd, db_name))
 
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    result = session.query(State).filter(
-            State.name.like("%a%")).order_by(
-                    State.id)
+    results = session.query(State).filter(
+            State.name.like('%a%')).order_by(State.id).all()
 
-    if resulti is not None:
-        for element in result:
-            print("{}: {}".format(result.id, result.name))
+    for result in results:
+        print("{}: {}".format(result.id, result.name))
