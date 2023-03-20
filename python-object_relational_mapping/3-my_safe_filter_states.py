@@ -23,10 +23,9 @@ if __name__ == "__main__":
     # Exectute the query
     cur = db.cursor()
 
-    query = ("""SELECT * FROM states
-            WHERE name LIKE %s
-            ORDER BY states.id ASC"""
-    cur.execute(query, (state_name,))
+    cur.execute("""SELECT * FROM states
+                WHERE name LIKE %s
+                ORDER BY states.id ASC""", (state_name,))
 
     # fetchall statement select the data of the tables
     records = cur.fetchall()
