@@ -5,11 +5,11 @@ function add (a, b) {
 }
 
 const args = process.argv.slice(2);
-const num1 = parseInt(args[0]);
-const num2 = parseInt(args[1]);
+const a = parseInt(args[0]);
+const b = parseInt(args[1]);
 
-if (Number.isNaN(num1) || Number.isNaN(num2)) {
+if (Number.isNaN(a) || Number.isNaN(b)) {
   console.log('NaN');
 } else {
-  console.log(num1 + num2);
+  console.log(add(a, b));
 }
