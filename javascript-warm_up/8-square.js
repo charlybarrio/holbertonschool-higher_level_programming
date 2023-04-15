@@ -8,5 +8,5 @@ let x;
 if (Number.isNaN(num)) {
   console.log('Missing size');
 } else {
-  for (x = 0; x < num; x++) { console.log('x'.repeat(num)); }
+  for (x = 0; x < num; x++) { console.log('X'.repeat(num)); }
 }
