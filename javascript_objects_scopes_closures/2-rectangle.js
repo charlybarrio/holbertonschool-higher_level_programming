@@ -7,7 +7,7 @@ class Rectangle {
     }
 
     this.width = w;
-    his.height = h;
+    this.height = h;
   }
 }
 module.exports = Rectangle;
