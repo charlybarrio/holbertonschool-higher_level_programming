@@ -15,6 +15,5 @@ request.get(Url, (err, res, body) => {
   const filmsWithWedge = data.results.filter(film =>
     film.characters.includes('https://swapi-api.hbtn.io/api/people/18/')
   );
-
   console.log(filmsWithWedge.length);
 });
