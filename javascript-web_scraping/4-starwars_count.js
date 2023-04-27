@@ -1,20 +1,25 @@
 #!/usr/bin/node
-
+const [, , url] = process.argv;
 const request = require('request');
 
-const Url = process.argv[2];
+const SWAPI_ORIGINAL_URL = 'https://swapi-api.hbtn.io/api/films/';
+const SWAPI_ALX_URL = 'https://swapi-api.alx-tools.com/api/films/';
+const apiUrl = url === SWAPI_ORIGINAL_URL ? SWAPI_ALX_URL : url;
 
-request.get(Url, (err, res, body) => {
-  if (err) {
-    console.error(err);
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error(error);
     return;
   }
 
-  const data = JSON.parse(body);
+  const films = JSON.parse(body).results;
+  let count = 0;
 
-  const filmsWithWedge = data.results.filter(film =>
-    film.characters.includes('https://swapi-api.hbtn.io/api/people/18/')
-  );
+  for (const film of films) {
+    if (film.characters.some(character => character.endsWith('/18/'))) {
+      count++;
+    }
+  }
 
-  console.log(filmsWithWedge.length);
+  console.log(count);
 });
